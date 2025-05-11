@@ -8,20 +8,29 @@ use App\Models\Product;
 class productController extends Controller
 {
     public function index(){
+
+        // geting all products
    $products= product::all();
 
 //   dd($products);
+// passing prodcuts data to the product blade view
         return view('product',[
             "products"=>$products
         ]);
     }
 
-        public function create(){
+       
+    // this is to show create.blade.php when user clicks the create new btn
+    public function create(){
             return view('create');
         }
 
-       public function store(Request $request){
-    $name=$request->input('name');
+
+//this function is to store data to database
+        public function store(Request $request){
+   
+   
+            $name=$request->input('name');
     $description=$request->input('description');
     $price=$request->input('price');
     $product=new Product;

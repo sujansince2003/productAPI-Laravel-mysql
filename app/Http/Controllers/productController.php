@@ -29,6 +29,13 @@ class productController extends Controller
 //this function is to store data to database
         public function store(Request $request){
    
+
+        //    validation
+            $request->validate([
+                "name"=>"required | max:100",
+                "description"=> "nullable | min:3",
+                "price"=>"required | numeric | max:1000 | min:10"
+            ]);
    
             $name=$request->input('name');
     $description=$request->input('description');

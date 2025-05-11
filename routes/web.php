@@ -7,6 +7,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/products",[productController::class,"index"]);
+Route::get("/products",[productController::class,"index"])->name("products");
 Route::get("/products/create",[productController::class,"create"])->name("create");
 Route::post("/products/create",[productController::class,"store"])->name("store");

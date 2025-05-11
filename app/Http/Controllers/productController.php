@@ -29,7 +29,7 @@ class productController extends Controller
     $product->description=$description;
     $product->price=$price;
     $product->save();
-    return redirect()->route('product');
+    return redirect()->route('products');
        }
 
 }

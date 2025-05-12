@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -26,6 +24,25 @@ class productController extends Controller
         }
 
 
+        public function viewProduct(string $id){
+            // dd($id);
+            $product= Product::select("*")->where('id','=',$id)->first();
+        //   dd($product);
+                 if($product==null){
+                    // return redirect()->route('products');
+                    abort(404);
+                 }
+
+
+            // return view('viewProduct',[
+            //     "product"=>$product 
+            // ]);
+            // both do the same
+            return view('viewProduct',compact('product'));
+        }
+
+
+
 //this function is to store data to database
         public function store(Request $request){
    
@@ -37,7 +54,7 @@ class productController extends Controller
                 "price"=>"required | numeric | max:1000 | min:10"
             ]);
    
-            $name=$request->input('name');
+    $name=$request->input('name');
     $description=$request->input('description');
     $price=$request->input('price');
     $product=new Product;

@@ -23,11 +23,11 @@
     <input type="text" id="name" name="name" value="{{ old('name') }}">
 {{-- value="{{ old('name') }} to keep the old value when the validation failed --}}
     <label for="description">product description</label>
-    <input type="text" id="description" name="description">
+    <input type="text" id="description" name="description" value="{{ old('description') }}">
 
     <label for="price">Price</label>
-    <input type="number" id="price" name="price">
-   
+    <input type="number" id="price" name="price" value="{{ old('price') }}">
+
 <button>Add</button>
 
 

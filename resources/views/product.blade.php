@@ -9,4 +9,8 @@
     <h1>{{ $product->name }}</h1>
     <h2>price:{{ $product->price }}</h2>
     <h3>description:{{ $product->description }}</h3>
+
+  
 @endforeach
+
+{{ $products->links() }}
